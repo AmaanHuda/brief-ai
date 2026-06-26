@@ -1,0 +1,164 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>BriefAI — Company Brochure Generator</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <!-- NAV -->
+    <nav>
+      <div class="nav-logo">Brief<span>AI</span></div>
+      <a href="#generator" class="nav-cta">Generate brochure</a>
+    </nav>
+
+    <!-- HERO -->
+    <section class="hero">
+      <div class="hero-eyebrow">
+        <span class="hero-eyebrow-dot"></span>
+        AI-powered · No signup required
+      </div>
+      <h1>Turn any website into a <em>polished brochure</em></h1>
+      <p class="hero-sub">
+        Paste a company URL. BriefAI reads the site, discovers relevant pages,
+        and writes a ready-to-share brochure in seconds.
+      </p>
+      <div class="scan-demo">
+        <div class="scan-label">Reading pages</div>
+        <div class="scan-chips" id="scanChips">
+          <span class="chip" data-label="Homepage">Homepage</span>
+          <span class="chip" data-label="About">About</span>
+          <span class="chip" data-label="Careers">Careers</span>
+          <span class="chip" data-label="Products">Products</span>
+          <span class="chip" data-label="Blog">Blog</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- GENERATOR -->
+    <section id="generator">
+      <div class="form-card">
+        <div class="form-card-title">Generate a company brochure</div>
+        <div class="form-row">
+          <div class="field">
+            <label for="companyInput">Company name</label>
+            <input
+              id="companyInput"
+              type="text"
+              placeholder="e.g. Stripe"
+              autocomplete="organization"
+            />
+          </div>
+          <div class="field">
+            <label for="urlInput">Website URL</label>
+            <input
+              id="urlInput"
+              type="url"
+              placeholder="https://stripe.com"
+              autocomplete="url"
+            />
+          </div>
+        </div>
+        <button class="generate-btn" id="generateBtn" onclick="generate()">
+          <span id="btnLabel">Generate brochure</span>
+        </button>
+
+        <div class="progress-area hidden" id="progressArea">
+          <ul class="progress-steps">
+            <li class="step inactive" id="step1">
+              <div class="step-icon" id="step1-icon">1</div>
+              <div class="step-text">
+                <div class="step-title">Fetching website links</div>
+                <div class="step-desc">
+                  Scraping the homepage to discover relevant pages
+                </div>
+              </div>
+            </li>
+            <li class="step inactive" id="step2">
+              <div class="step-icon" id="step2-icon">2</div>
+              <div class="step-text">
+                <div class="step-title">Reading company pages</div>
+                <div class="step-desc">About, Careers, Products and more</div>
+              </div>
+            </li>
+            <li class="step inactive" id="step3">
+              <div class="step-icon" id="step3-icon">3</div>
+              <div class="step-text">
+                <div class="step-title">Writing brochure</div>
+                <div class="step-desc">
+                  Synthesising findings into a clean document
+                </div>
+              </div>
+            </li>
+          </ul>
+          <div class="error-box hidden" id="errorBox"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- OUTPUT -->
+    <section class="output-section hidden" id="outputSection">
+      <div class="output-header">
+        <div class="output-title" id="outputTitle">Brochure</div>
+        <div class="output-actions">
+          <button class="btn-ghost" id="copyMdBtn" onclick="copyMarkdown()">
+            Copy markdown
+          </button>
+          <button class="btn-ghost" onclick="window.print()">Print</button>
+          <button class="btn-ghost" onclick="resetForm()">New brochure</button>
+        </div>
+      </div>
+      <div class="brochure-card">
+        <div class="brochure-body" id="brochureBody"></div>
+      </div>
+    </section>
+
+    <!-- HOW IT WORKS -->
+    <section class="how-section">
+      <div class="section-label">How it works</div>
+      <div class="how-title">Three steps, a few seconds</div>
+      <div class="how-grid">
+        <div class="how-item">
+          <div class="how-num">1</div>
+          <div class="how-item-title">Enter the URL</div>
+          <div class="how-item-desc">
+            Paste any company website. We handle scraping, link discovery, and
+            content extraction.
+          </div>
+        </div>
+        <div class="how-item">
+          <div class="how-num">2</div>
+          <div class="how-item-title">AI reads the site</div>
+          <div class="how-item-desc">
+            The backend fetches the homepage, selects relevant sub-pages, and
+            reads each one.
+          </div>
+        </div>
+        <div class="how-item">
+          <div class="how-num">3</div>
+          <div class="how-item-title">Get your brochure</div>
+          <div class="how-item-desc">
+            A structured markdown brochure — ready to copy, share, or drop into
+            a proposal.
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+      <div class="footer-logo">Brief<span>AI</span></div>
+      <div class="footer-note">Powered by Gemini · No data stored</div>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>

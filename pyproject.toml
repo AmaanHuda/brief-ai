@@ -1,0 +1,12 @@
+
+
+#Project by Amaan Huda
+
+dependencies = [
+    "openai",
+    "python-dotenv",
+    "beautifulsoup4",
+    "requests",
+    "ipython"
+]
+
