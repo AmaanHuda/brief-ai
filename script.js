@@ -1,5 +1,5 @@
 // ── CONFIG — change this to your deployed backend URL ──────────────────────
-const API_BASE = "https://brief-ai-xh6b.onrender.com/health";
+const API_BASE = "https://brief-ai-xh6b.onrender.com";
 
 // ── SCAN ANIMATION ──────────────────────────────────────────────────────────
 const chips = document.querySelectorAll("#scanChips .chip");
