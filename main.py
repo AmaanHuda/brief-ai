@@ -11,12 +11,10 @@ from dotenv import load_dotenv
 load_dotenv()
 
 app = FastAPI(title="BriefAI Brochure Generator")
-
 app.add_middleware(
     CORSMiddleware,
-    allow_methods=["GET", "POST", "OPTIONS"],
-    allow_origins=["http://127.0.0.1:5500", "http://localhost:5500"],
-    allow_credentials=False,
+    allow_origins=["*"],
+    allow_methods=["*"],
     allow_headers=["*"],
 )
 
@@ -124,7 +122,7 @@ def fetch_page_and_all_relevant_links(url: str) -> str:
 
 BROCHURE_SYSTEM_PROMPT = """
 You are an expert sales strategist and client-focused business analyst.
-
+You analayze all the details with through inspection and then only proceed. You carefully exmaine every detail and scrap everything that seems important.
 Your task is to analyze a company’s website and generate a brochure specifically for potential clients or customers.
 
 Your goal is NOT to summarize the website.
