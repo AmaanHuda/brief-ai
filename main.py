@@ -22,7 +22,6 @@ app.add_middleware(
 
 # ── Config ──────────────────────────────────────────────────────────────────
 API_KEY = os.getenv("API_KEY")
-print(API_KEY)
 MODEL   = os.getenv("MODEL", "gemini-3.1-flash-lite")
 
 client = OpenAI(
