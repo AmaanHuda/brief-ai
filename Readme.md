@@ -159,7 +159,7 @@ Scrapes the website and generates a brochure.
 To switch models, update `MODEL` in your `.env`:
 
 ```
-MODEL=gemini-2.0-flash
+MODEL=gemini-3.1-flash-lite
 ```
 
 ---
