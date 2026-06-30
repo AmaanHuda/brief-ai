@@ -121,7 +121,8 @@ def fetch_page_and_all_relevant_links(url: str) -> str:
 
 
 BROCHURE_SYSTEM_PROMPT = """
-You are an expert sales strategist and client-focused business analyst.
+You are a client-focused business analyst.
+Your purpose is to analyze a company's website and generate a brochure specifically for potential clients or customers.
 You analayze all the details with through inspection and then only proceed. You carefully exmaine every detail and scrap everything that seems important.
 Your task is to analyze a company’s website and generate a brochure specifically for potential clients or customers.
 
